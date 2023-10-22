@@ -30,9 +30,9 @@ def get_task_dependencies(task_name: str | Task) -> list[Task]:
 
 
 def sort_tasks_by_dependencies(
-        tasks: list[Task],
+        tasks: list[Task | str],
         result: list[str] | None = None,
-):
+) -> list[Task | str]:
     if result is None:
         result = []
 
@@ -57,7 +57,7 @@ def get_build_task_graphs(build_name: str) -> list[dict]:
     return res
 
 
-def get_task_tree(task_name: str | Task):
+def get_task_tree(task_name: str | Task) -> list[dict]:
     deps_graph = []
     if len(get_task_dependencies(task_name)) == 0:
         return []
@@ -68,6 +68,6 @@ def get_task_tree(task_name: str | Task):
     return deps_graph
 
 
-def get_build_dependencies(build_name: str):
+def get_build_dependencies(build_name: str) -> list[str]:
     task_graphs = get_build_task_graphs(build_name)
     return sort_tasks_by_dependencies(task_graphs)

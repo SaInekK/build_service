@@ -14,9 +14,6 @@ if not os.path.isfile(TASKS_PATH):
     raise FileNotFoundError('tasks.yaml not found')
 
 
-file_paths = [BUILDS_PATH, TASKS_PATH]
-
-
 class YamlReaderService:
     def __init__(self, file_path: str):
         self.file_content = self.load_yaml_file(file_path)
@@ -39,10 +36,15 @@ class Build(TypedDict):
 
 class Task(TypedDict):
     name: str
-    dependencies: list['Task']
+    dependencies: list[str]
 
 
-builds_list: list[Build] = YamlReaderService(BUILDS_PATH).get_by_root_name('builds')
-tasks_list: list[Task] = YamlReaderService(TASKS_PATH).get_by_root_name('tasks')
+builds_list: list[Build] = YamlReaderService(
+    file_path=BUILDS_PATH,
+).get_by_root_name('builds')
+
+tasks_list: list[Task] = YamlReaderService(
+    file_path=TASKS_PATH,
+).get_by_root_name('tasks')
 
 
