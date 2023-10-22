@@ -96,3 +96,13 @@ builds:
   - train_white_leprechauns
   - write_maroon_humans
   - write_purple_leprechauns
+
+
+# test_builds
+- name: A
+  tasks:
+  - B
+  - C
+- name: H
+  tasks:
+    - J

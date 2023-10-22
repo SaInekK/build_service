@@ -1747,3 +1747,21 @@ tasks:
   - map_lime_leprechauns
 - name: write_yellow_ogres
   dependencies: []
+
+
+
+- name: B
+  dependencies: []
+- name: C
+  dependencies: ['B', 'D']
+- name: D
+  dependencies: []
+
+- name: J
+  dependencies: ['L', 'K']
+- name: K
+  dependencies: ['L']
+- name: L
+  dependencies: ['M']
+- name: M
+  dependencies: []

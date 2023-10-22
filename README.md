@@ -23,6 +23,11 @@ pip install -r requirements.txt
 uvicorn main:app --host 127.0.0.1 --port 8000 --reload
 ```
 
+Запуск тестов:
+```
+pytest
+```
+
 
 ### Пример запроса:
 POST: http://127.0.0.1:8000/get_tasks 
