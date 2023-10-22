@@ -2,12 +2,14 @@
 
 Клонировать репозиторий:
 
-`git@github.com:SaInekK/build_service.git`
+```
+git@github.com:SaInekK/build_service.git`
+```
 
 Создать и активировать виртуальное окружение:
 ```
 python -m venv venv
-source venv/Scripts/activate
+source venv/bin/activate
 ```
 
 Установить зависимости:
